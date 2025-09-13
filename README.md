@@ -1,20 +1,117 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+   <h1>Socket.io Test Client</h1>
+   <p><strong>Lightweight, reactive tool to connect, inspect, and emit <code>Socket.IO</code> events for backend debugging.</strong></p>
+   <p>
+      <img src="docs/images/preview-1.png" alt="Main interface" width="640" />
+   </p>
+   <p>
+      <img src="docs/images/preview-2.png" alt="Event emitting and logs" width="640" />
+   </p>
 </div>
 
-# Run and deploy your AI Studio app
+## Features
 
-This contains everything you need to run your app locally.
+- 🔌 Multi‑profile connection manager (switch between endpoints quickly)
+- 🔐 Optional token field (attach auth manually in your own logic layer if extended)
+- 📡 Add & remove dynamic event listeners at runtime
+- 📤 Emit events with JSON payload editor (validation feedback)
+- 🧾 Structured message log grouped by event name
+- 🎨 Light / dark theme toggle (CSS variables + Tailwind utility usage)
+- ⚡ Fast Vite + React 19 + TypeScript stack
+- ♻️ Persistent state via local storage (profiles, draft events, listeners)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1U0bbt75uKAxX9KTFgDlJK6tFkewXQded
+## Tech Stack
 
-## Run Locally
+| Layer | Choice |
+|-------|--------|
+| Build | Vite |
+| Realtime | socket.io-client ^4.8.x |
+| Language | TypeScript |
 
-**Prerequisites:**  Node.js
+## Getting Started
 
+### 1. Install
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm install
+```
+
+### 2. (Optional) Configure Site URL for SEO
+
+Create a `.env` file (copy from `.env.example`):
+
+```
+VITE_SITE_URL=https://your-domain.com
+```
+
+### 3. Run Dev Server
+
+```bash
+npm run dev
+```
+
+Open the printed local URL (typically http://localhost:5173/).
+
+### 4. Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Usage
+
+1. Enter or select a connection profile URL (e.g. `ws://localhost:3000`).
+2. Click Connect. Connection status + socket id will appear.
+3. Add event names under Listeners to start capturing incoming messages.
+4. Use the Emit form to send an event + JSON payload (editor helps formatting).
+5. Clear messages from the log when needed.
+
+## Project Structure (simplified)
+
+```
+src/
+   components/       # UI pieces (ConnectionManager, EventSender, etc.)
+   hooks/            # Custom hooks (useSocketManager, useLocalStorage)
+   contexts/         # Theme context
+   index.tsx         # App bootstrap
+   App.tsx           # Composition root
+public/             # Static assets (manifest, robots, sitemap)
+docs/images/        # Documentation screenshots
+```
+
+## Environment Variables
+
+| Name | Purpose | Required |
+|------|---------|----------|
+| `VITE_SITE_URL` | Inject canonical + og:url at runtime | No |
+
+## SEO / Metadata
+
+- Dynamic canonical + OpenGraph URL via `VITE_SITE_URL`.
+- Structured data (SoftwareApplication) included.
+- robots.txt + sitemap.xml generated manually (edit domain before deploying).
+
+## Extending
+
+Ideas:
+- Add authentication headers injection before connecting.
+- Persist logs to IndexedDB.
+- Export / import profiles (JSON download).
+- Add namespaces / rooms panel.
+
+## Contributing
+
+PRs welcome. Please keep components small & typed.
+
+## License
+
+MIT
+
+## Author
+
+Dagim Chernet
+
+---
+
+If this helps you debug realtime backends, consider starring the repository. ⭐
