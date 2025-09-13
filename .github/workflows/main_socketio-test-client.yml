@@ -60,4 +60,6 @@ jobs:
         with:
           app-name: 'socketio-test-client'
           slot-name: 'Production'
-          package: dist   # deploy only dist/
+          package: ./dist
+
+
