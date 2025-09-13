@@ -2,28 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="icon" type="image/svg+xml" href="/alien.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Socket.io Test Client</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <title>Socket.io Test Client | Realtime WebSocket / Socket.IO Event Testing Tool</title>
+  <meta name="description" content="Open-source Socket.IO test client to connect, authenticate, listen, and emit real-time events. Great for debugging backend gateways & WebSocket APIs." />
+  <meta name="keywords" content="Socket.IO, WebSocket client, real-time testing tool, event debugger, websocket QA, emit events, listen events" />
+  <meta name="author" content="Dagim Chernet" />
+  <meta name="robots" content="index,follow" />
+  <!-- Canonical URL will be set dynamically based on VITE_SITE_URL -->
+  <link rel="canonical" href="/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Socket.io Test Client" />
+  <meta property="og:description" content="Connect, inspect, and emit Socket.IO events with an interactive realtime testing interface." />
+  <meta property="og:url" content="/" />
+  <meta property="og:site_name" content="Socket.io Test Client" />
+  <!-- og:image removed until an asset is provided -->
+  <meta property="og:locale" content="en_US" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Socket.io Test Client" />
+  <meta name="twitter:description" content="Open-source tool to debug and simulate Socket.IO realtime events." />
+  <!-- twitter:image removed until an asset is provided -->
+  <!-- PWA / Theming -->
+  <meta name="theme-color" content="#111827" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Core Resources -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.4/jsoneditor.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.4/jsoneditor.min.js"></script>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "socket.io-client": "https://aistudiocdn.com/socket.io-client@^4.8.1"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.4/jsoneditor.min.js" defer></script>
+  <!-- Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://aistudiocdn.com/react@^19.1.1",
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+      "react/": "https://aistudiocdn.com/react@^19.1.1/",
+      "socket.io-client": "https://aistudiocdn.com/socket.io-client@^4.8.1"
+    }
   }
-}
-</script>
+  </script>
   <link rel="stylesheet" href="/index.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Socket.io Test Client",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "description": "Developer tool to explore, test, and debug Socket.IO/WebSocket real-time event APIs.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
 </head>
 <body>
+  <noscript>
+    <div style="padding:1rem; background:#111; color:#fff; font-family:Inter,system-ui,sans-serif;">
+      This application requires JavaScript to run. Please enable JavaScript in your browser.
+    </div>
+  </noscript>
   <div id="root"></div>
+  <!-- Dynamic canonical + og:url setter (uses VITE_SITE_URL if provided) -->
+  <script type="module">
+    const siteUrl = import.meta.env?.VITE_SITE_URL;
+    if (siteUrl) {
+      const norm = siteUrl.replace(/\/$/, '');
+      const canonical = document.querySelector('link[rel=canonical]');
+      if (canonical) canonical.setAttribute('href', norm + '/');
+      const og = document.querySelector('meta[property="og:url"]');
+      if (og) og.setAttribute('content', norm + '/');
+    }
+  </script>
   <script type="module" src="/src/index.tsx"></script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+/* TEAM */
+Developer: Dagim Chernet
+Site: dagimchernet.tech
+
+/* THANKS */
+Socket.IO, React, Vite.
+
+/* SITE */
+Last update: 2025-09-13
+Standards: HTML5, ES2023
+Components: React 19, Tailwind CDN
