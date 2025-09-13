@@ -25,7 +25,7 @@ export const EventSender: React.FC<EventSenderProps> = ({ sendEvent, isConnected
                 sendEvent(eventDetails.name.trim(), eventDetails.payload);
                 setPayloadError(null);
                 setJustSent(true);
-                setTimeout(() => setJustSent(false), 2000);
+                setTimeout(() => setJustSent(false), 200);
             } catch (err: any) {
                 const errorMessage = `Invalid JSON: ${err.message.replace('JSON.parse: ', '')}`;
                 setPayloadError(errorMessage);
