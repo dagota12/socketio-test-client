@@ -1,0 +1,5 @@
+{
+  "name": "Socket.io Test Client",
+  "description": "A web application for testing Socket.io connections. It allows for dynamic event listening and sending, providing an intuitive interface for backend developers to debug their WebSocket projects without setting up a full client-side environment.",
+  "requestFramePermissions": []
+}
